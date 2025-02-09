@@ -11,11 +11,7 @@ module.exports = {
 		// Handle CSS imports
 		'\\.(css|less|scss|sass)$': 'identity-obj-proxy',
 	},
-	testPathIgnorePatterns: [
-		'<rootDir>/node_modules/',
-		'<rootDir>/.next/',
-		'<rootDir>/e2e/',
-	],
+	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/e2e/'],
 	collectCoverage: true,
 	collectCoverageFrom: [
 		'./src/**/*.{js,jsx,ts,tsx}',
@@ -28,8 +24,5 @@ module.exports = {
 		// Use babel-jest to transpile tests with next/babel preset
 		'^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
 	},
-	transformIgnorePatterns: [
-		'/node_modules/',
-		'^.+\\.module\\.(css|sass|scss)$',
-	],
+	transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
 };
