@@ -14,8 +14,8 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^3.7.0",
 		"@emotion/react": "^11.14.0",
+		"@radix-ui/themes": "^3.2.0",
 		"dotenv": "^16.4.7",
 		"es-toolkit": "^1.32.0",
 		"lucide-react": "^0.475.0",
@@ -48,12 +48,6 @@
 		"jest-environment-jsdom": "^29.7.0",
 		"storybook": "^8.5.3",
 		"ts-jest": "^29.2.5",
-		"tsx": "^4.19.2",
 		"typescript": "^5"
-	},
-	"msw": {
-		"workerDirectory": [
-			"public"
-		]
 	}
 }
