@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 온라인 명함 (가제: share me)
 
-## Getting Started
+### 만들게 된 계기
 
-First, run the development server:
+- 오프라인 밋업에 참여했는데, 명함을 가져가지 않아서 링크드인 등 연락처를 나누기가 어려웠다. 그래서 빠르게 공유 가능한 명함이 있다면 편리할 것 같아서 만들게 되었다.
+- 컴포넌트 설계, 테스트코드 작성, 새로운 버젼의 기술과 관심은 있었지만 사용해본 적이 없는 기술로 골랐다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 항목 (커스터마이징 가능)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 이름 (영문, 한글, 닉네임)
+- 연락처
+- 이메일
+- 링크드인
+- 웹사이트 링크
+  - 포트폴리오
+  - 블로그
+  - github
+  - 노션
+  - 유튜브
+  - SNS
+  - 기타
+- 회사명
+- 자기소개
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 기능
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 명함 생성
+- 명함 조회
+- QRCode를 통한 공유
+- 짧은 URL을 통한 공유 (추후 개발)
 
-## Learn More
+### 기술스택
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Nextjs 15
+- Reactjs 19
+- Chakra UI
+- Playwright
+- Jest
+- Storybook
+- SVG
+- AWS Cloudfront, S3
