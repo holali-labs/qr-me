@@ -2,11 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Theme } from '@radix-ui/themes';
 
-import { Header } from './_components/Header';
-import { Banner } from '@/app/_components/Banner';
-import { Footer } from './_components/Footer';
-
-import './globals.css';
+import '@/app/globals.css';
 import '@radix-ui/themes/styles.css';
 
 const geistSans = Geist({
@@ -20,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Share Me',
+	title: 'QR Me',
 	description: 'Share your business card with ease.',
 };
 
@@ -33,10 +29,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<Theme accentColor="cyan" grayColor="sand" radius="large" scaling="95%">
-					<Header />
-					<Banner />
 					{children}
-					<Footer />
 				</Theme>
 			</body>
 		</html>

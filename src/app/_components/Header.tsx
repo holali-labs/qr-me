@@ -10,7 +10,7 @@ export function Header() {
 						<Logo />
 						<Text size="5">
 							<Heading as="h1" color="cyan">
-								Share Me
+								QR Me
 							</Heading>
 						</Text>
 					</Flex>

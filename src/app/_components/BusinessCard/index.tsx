@@ -1,7 +1,7 @@
-import { AspectRatio, Box, Container, Flex, Text, Heading, HoverCard, Link } from '@radix-ui/themes';
+import { AspectRatio, Box, Flex, Text, Heading, Separator } from '@radix-ui/themes';
+import type { ReactNode } from 'react';
 import {
 	IoIosPin as LocationIcon,
-	IoMdBusiness as CompanyIcon,
 	IoIosMail as MailIcon,
 	IoIosCall as PhoneIcon,
 	IoLogoLinkedin as LinkedInIcon,
@@ -20,119 +20,76 @@ export type BusinessCardData = Partial<{
 	website: string;
 }>;
 
-export function BusinessCard(businessCardData: BusinessCardData) {
+export function BusinessCard(businessCardData: BusinessCardData & { qrcode: ReactNode }) {
 	return (
-		<Container size="1" maxWidth="450px">
-			<AspectRatio ratio={9 / 5}>
-				<Box p="3" width="100%" height="100%" style={{ border: '1px solid var(--gray-a4)' }} asChild>
-					<Flex direction="column">
-						<Flex align="end" gap="2">
-							<Text color="cyan" asChild>
-								<Heading as="h4" size="7">
-									{businessCardData.name}
-								</Heading>
-							</Text>
-						</Flex>
-						<Flex gap="2" align="center" mb="3">
-							<Text asChild>
-								<Heading as="h5" size="3" weight="light">
-									{businessCardData.position}
-								</Heading>
-							</Text>
-							-
-							<Text asChild>
-								<Heading as="h5" size="3" weight="light">
-									{businessCardData.jobTitle}
-								</Heading>
-							</Text>
-						</Flex>
-						<Flex align="center" gap="1">
-							{businessCardData.company && (
-								<Flex align="center" gap="1">
-									<CompanyIcon />
-									<Heading as="h5" size="3" weight="light">
-										{businessCardData.company}
-									</Heading>
-								</Flex>
-							)}
-						</Flex>
-						<Flex align="center" gap="1" mb="3">
-							<LocationIcon />
-							<Heading as="h5" size="3" weight="light">
-								{businessCardData.location}
+		<AspectRatio ratio={9 / 5}>
+			<Box
+				id="business-card"
+				p="3"
+				width="100%"
+				minHeight="250px"
+				style={{ border: '1px solid var(--gray-a4)', background: 'var(--background)', position: 'relative' }}
+				asChild
+			>
+				<Flex direction="column">
+					<Flex align="end" gap="2" mb="3">
+						<Text color="cyan" asChild>
+							<Heading as="h4" size="7">
+								{businessCardData.name}
 							</Heading>
-						</Flex>
-						<Flex align="center" gap="1" mb="1">
-							<MailIcon />
-							<HoverCard.Root>
-								<HoverCard.Trigger>
-									<a href={`mailto:${businessCardData.email}`}>
-										<Heading as="h5" size="3" weight="regular">
-											{businessCardData.email}
-										</Heading>
-									</a>
-								</HoverCard.Trigger>
-								<HoverCard.Content side="bottom">
-									<Heading as="h5" size="3" weight="regular">
-										Click to mail to "{businessCardData.email}"
-									</Heading>
-								</HoverCard.Content>
-							</HoverCard.Root>
-						</Flex>
-						<Flex align="center" gap="1" mb="1">
-							<PhoneIcon />
-							<HoverCard.Root>
-								<HoverCard.Trigger>
-									<a href={`tel:${businessCardData.phone}`}>
-										<Heading as="h5" size="3" weight="regular">
-											{businessCardData.phone}
-										</Heading>
-									</a>
-								</HoverCard.Trigger>
-								<HoverCard.Content side="bottom">
-									<Heading as="h5" size="3" weight="regular">
-										Click to call to "{businessCardData.phone}"
-									</Heading>
-								</HoverCard.Content>
-							</HoverCard.Root>
-						</Flex>
-						<Flex align="center" gap="1" mb="1">
-							<LinkedInIcon />
-							<HoverCard.Root>
-								<HoverCard.Trigger>
-									<a href={businessCardData.linkedin}>
-										<Heading as="h5" size="3" weight="regular">
-											{businessCardData.linkedin}
-										</Heading>
-									</a>
-								</HoverCard.Trigger>
-								<HoverCard.Content side="bottom">
-									<Heading as="h5" size="3" weight="regular">
-										Click to open linkedin profile
-									</Heading>
-								</HoverCard.Content>
-							</HoverCard.Root>
-						</Flex>
-						<Flex align="center" gap="1" mb="1">
-							<WebsiteIcon />
-							<HoverCard.Root>
-								<HoverCard.Trigger>
-									<a href={businessCardData.website}>
-										<Heading as="h5" size="3" weight="regular">
-											{businessCardData.website}
-										</Heading>
-									</a>
-								</HoverCard.Trigger>
-								<HoverCard.Content side="bottom">
-									<Heading as="h5" size="3" weight="regular">
-										Click to open website
-									</Heading>
-								</HoverCard.Content>
-							</HoverCard.Root>
-						</Flex>
+						</Text>
+						<Separator orientation="vertical" />
+						<Text asChild>
+							<Heading as="h5" size="2" weight="regular">
+								<sub>
+									{businessCardData.position}, @{businessCardData.company}
+								</sub>
+							</Heading>
+						</Text>
 					</Flex>
-				</Box>
-			</AspectRatio>
-		</Container>
+					<Flex align="center" gap="1" mb="3">
+						<LocationIcon />
+						<Heading as="h5" size="3" weight="light">
+							{businessCardData.location}
+						</Heading>
+					</Flex>
+					<Flex align="center" gap="1" mb="1">
+						<MailIcon />
+						<a href={`mailto:${businessCardData.email}`}>
+							<Heading as="h5" size="3" weight="regular">
+								{businessCardData.email}
+							</Heading>
+						</a>
+					</Flex>
+					<Flex align="center" gap="1" mb="1">
+						<PhoneIcon />
+						<a href={`tel:${businessCardData.phone}`}>
+							<Heading as="h5" size="3" weight="regular">
+								{businessCardData.phone}
+							</Heading>
+						</a>
+					</Flex>
+					<Flex align="center" gap="1" mb="1">
+						<LinkedInIcon />
+						<a href={businessCardData.linkedin} target="_blank" rel="noreferrer">
+							<Heading as="h5" size="3" weight="regular">
+								Linkedin: @{businessCardData.linkedin?.split('/')[4]}
+							</Heading>
+						</a>
+					</Flex>
+					<Flex align="center" gap="1" mb="1">
+						<WebsiteIcon />
+						<a href={businessCardData.website} target="_blank" rel="noreferrer">
+							<Heading as="h5" size="3" weight="regular">
+								{businessCardData.website}
+							</Heading>
+						</a>
+					</Flex>
+					<Box style={{ position: 'absolute', bottom: 'var(--space-3)', right: 'var(--space-3)' }}>
+						{businessCardData.qrcode}
+					</Box>
+				</Flex>
+			</Box>
+		</AspectRatio>
 	);
 }
