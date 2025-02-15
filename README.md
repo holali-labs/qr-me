@@ -33,9 +33,8 @@
 
 - Nextjs 15
 - Reactjs 19
-- Chakra UI
+- Radix UI
 - Playwright
 - Jest
 - Storybook
-- SVG
-- AWS Cloudfront, S3
+- Cloudflare
