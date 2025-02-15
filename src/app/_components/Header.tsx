@@ -5,7 +5,7 @@ export function Header() {
 	return (
 		<Box asChild>
 			<header>
-				<Container size="2" p="3">
+				<Container size={{ xs: '1', sm: '2' }} p="3">
 					<Flex align="center" gap="2">
 						<Logo />
 						<Text size="5">
