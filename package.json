@@ -1,12 +1,12 @@
 {
-	"name": "share-me",
+	"name": "qr-me",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "boime check .",
+		"lint": "biome check .",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
