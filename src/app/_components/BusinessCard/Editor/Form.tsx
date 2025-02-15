@@ -15,7 +15,7 @@ export function EditorForm({ onEdit }: Props) {
 	const { businessCard } = useContext(EditorContext);
 
 	return (
-		<Flex direction="column" justify="center" gap="3" px="2">
+		<Flex direction="column" justify="center" gap="3" px="2" maxWidth="450px" width="100%" mx="auto">
 			<Box>
 				<Label htmlFor="name">Name</Label>
 				<TextField.Root id="name" placeholder={defaultData.name} value={businessCard.name} onChange={onEdit('name')} />

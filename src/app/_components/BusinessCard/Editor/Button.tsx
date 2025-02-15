@@ -1,4 +1,4 @@
-import { Button } from '@radix-ui/themes';
+import { Button, Container } from '@radix-ui/themes';
 import { scrollToTop } from '@/app/_utils/scroll';
 import { delay } from 'es-toolkit';
 import domToImage from 'dom-to-image';
@@ -26,5 +26,11 @@ export function EditorButton() {
 		link.click();
 	};
 
-	return <Button onClick={generateQRCode}>Save my business card</Button>;
+	return (
+		<Container px="2">
+			<Button onClick={generateQRCode} style={{ width: '100%', maxWidth: '450px', margin: '0 auto' }}>
+				Save my business card
+			</Button>
+		</Container>
+	);
 }

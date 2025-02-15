@@ -6,7 +6,7 @@ import { Container } from '@radix-ui/themes';
 export function EditorPreview({ qrcode }: { qrcode: ReactNode }) {
 	const { businessCard } = useContext(EditorContext);
 	return (
-		<Container px="2">
+		<Container px="2" mb="4">
 			<BusinessCard {...businessCard} qrcode={qrcode} />
 		</Container>
 	);
