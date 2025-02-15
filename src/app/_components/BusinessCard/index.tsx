@@ -7,6 +7,7 @@ import {
 	IoLogoLinkedin as LinkedInIcon,
 	IoIosLink as WebsiteIcon,
 } from 'react-icons/io';
+import { Optional } from '../Optional';
 
 export type BusinessCardData = Partial<{
 	name: string;
@@ -20,7 +21,17 @@ export type BusinessCardData = Partial<{
 	website: string;
 }>;
 
-export function BusinessCard(businessCardData: BusinessCardData & { qrcode: ReactNode }) {
+export function BusinessCard({
+	name,
+	position,
+	company,
+	location,
+	email,
+	phone,
+	linkedin,
+	website,
+	qrcode,
+}: BusinessCardData & { qrcode: ReactNode }) {
 	return (
 		<AspectRatio ratio={9 / 5}>
 			<Box
@@ -28,66 +39,78 @@ export function BusinessCard(businessCardData: BusinessCardData & { qrcode: Reac
 				p="3"
 				width="100%"
 				minHeight="250px"
-				style={{ border: '1px solid var(--gray-a4)', background: 'var(--background)', position: 'relative' }}
+				style={{ border: '1px solid var(--gray-a4)', background: 'white', position: 'relative' }}
 				asChild
 			>
 				<Flex direction="column">
 					<Flex align="end" gap="2" mb="3">
-						<Text color="cyan" asChild>
-							<Heading as="h4" size="7">
-								{businessCardData.name}
-							</Heading>
-						</Text>
+						<Optional value={name}>
+							<Text color="cyan" asChild>
+								<Heading as="h4" size="7">
+									{name}
+								</Heading>
+							</Text>
+						</Optional>
 						<Separator orientation="vertical" />
-						<Text asChild>
-							<Heading as="h5" size="2" weight="regular">
-								<sub>
-									{businessCardData.position}, @{businessCardData.company}
-								</sub>
-							</Heading>
-						</Text>
+						<Optional value={position && company}>
+							<Text asChild>
+								<Heading as="h5" size="2" weight="regular">
+									<sub>
+										{position}, @{company}
+									</sub>
+								</Heading>
+							</Text>
+						</Optional>
 					</Flex>
 					<Flex align="center" gap="1" mb="3">
-						<LocationIcon />
-						<Heading as="h5" size="3" weight="light">
-							{businessCardData.location}
-						</Heading>
+						<Optional value={location}>
+							<LocationIcon />
+							<Heading as="h5" size="3" weight="light">
+								{location}
+							</Heading>
+						</Optional>
 					</Flex>
 					<Flex align="center" gap="1" mb="1">
-						<MailIcon />
-						<a href={`mailto:${businessCardData.email}`}>
-							<Heading as="h5" size="3" weight="regular">
-								{businessCardData.email}
-							</Heading>
-						</a>
+						<Optional value={email}>
+							<MailIcon />
+							<a href={`mailto:${email}`}>
+								<Heading as="h5" size="3" weight="regular">
+									{email}
+								</Heading>
+							</a>
+						</Optional>
 					</Flex>
 					<Flex align="center" gap="1" mb="1">
-						<PhoneIcon />
-						<a href={`tel:${businessCardData.phone}`}>
-							<Heading as="h5" size="3" weight="regular">
-								{businessCardData.phone}
-							</Heading>
-						</a>
+						<Optional value={phone}>
+							<PhoneIcon />
+							<a href={`tel:${phone}`}>
+								<Heading as="h5" size="3" weight="regular">
+									{phone}
+								</Heading>
+							</a>
+						</Optional>
 					</Flex>
 					<Flex align="center" gap="1" mb="1">
-						<LinkedInIcon />
-						<a href={businessCardData.linkedin} target="_blank" rel="noreferrer">
-							<Heading as="h5" size="3" weight="regular">
-								Linkedin: @{businessCardData.linkedin?.split('/')[4]}
-							</Heading>
-						</a>
+						<Optional value={linkedin}>
+							<LinkedInIcon />
+							<a href={linkedin} target="_blank" rel="noreferrer">
+								<Heading as="h5" size="3" weight="regular">
+									Linkedin: @{linkedin?.split('/')[4]}
+								</Heading>
+							</a>
+						</Optional>
 					</Flex>
 					<Flex align="center" gap="1" mb="1">
-						<WebsiteIcon />
-						<a href={businessCardData.website} target="_blank" rel="noreferrer">
-							<Heading as="h5" size="3" weight="regular">
-								{businessCardData.website}
-							</Heading>
-						</a>
+						<Optional value={website}>
+							<WebsiteIcon />
+							<a href={website} target="_blank" rel="noreferrer">
+								<Heading as="h5" size="3" weight="regular">
+									{website}
+								</Heading>
+							</a>
+						</Optional>
 					</Flex>
-					<Box style={{ position: 'absolute', bottom: 'var(--space-3)', right: 'var(--space-3)' }}>
-						{businessCardData.qrcode}
-					</Box>
+					<Box style={{ position: 'absolute', bottom: 'var(--space-3)', right: 'var(--space-3)' }}>{qrcode}</Box>
 				</Flex>
 			</Box>
 		</AspectRatio>
