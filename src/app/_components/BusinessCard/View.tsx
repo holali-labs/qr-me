@@ -11,7 +11,7 @@ export function BusinessCardView() {
 	const businessCardData = qs.parse(searchParams.toString());
 
 	return (
-		<Container m="8" maxWidth="450px">
+		<Container mt="8" px="2">
 			<BusinessCard {...businessCardData} qrcode={<EditorOutput />} />
 		</Container>
 	);
