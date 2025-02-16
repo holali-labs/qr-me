@@ -6,7 +6,7 @@ export function Banner() {
 			<Flex direction="column" align="center" gap="4">
 				<Text wrap="balance" color="cyan" asChild>
 					<Heading as="h1" size={{ xs: '8', sm: '9' }}>
-						Seamlessly Share Youself with the QR Code.
+						Seamlessly Share Youself with the QR.
 					</Heading>
 				</Text>
 				<Text weight="light" asChild>
