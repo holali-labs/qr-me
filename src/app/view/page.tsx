@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 		siteName: 'Viewer | QR Me',
 		images: [
 			{
-				url: '../og.png',
+				url: `${process.env.NEXT_PUBLIC_BASE_URL}/og.png`,
 				width: 800,
 				height: 600,
 			},
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 		description: 'Share your business card with ease.',
 		images: [
 			{
-				url: '../og.png',
+				url: `${process.env.NEXT_PUBLIC_BASE_URL}/og.png`,
 				width: 800,
 				height: 600,
 			},
