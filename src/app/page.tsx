@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 		siteName: 'QR Me',
 		images: [
 			{
-				url: '/og.png',
+				url: './og.png',
 				width: 800,
 				height: 600,
 			},
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		description: 'Share your business card with ease.',
 		images: [
 			{
-				url: '/og.png',
+				url: './og.png',
 				width: 800,
 				height: 600,
 			},
