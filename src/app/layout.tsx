@@ -9,6 +9,8 @@ import '@radix-ui/themes/styles.css';
 import Head from 'next/head';
 import Script from 'next/script';
 
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+
 const geistSans = Geist({
 	variable: '--font-geist-sans',
 	subsets: ['latin'],
@@ -31,17 +33,21 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<Head>
+				<Script
+					async
+					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1555749331536079"
+					crossOrigin="anonymous"
+				/>
+			</Head>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<Theme accentColor="cyan" grayColor="sand" radius="large" scaling="95%">
 					<Header />
 					{children}
 					<Footer />
 				</Theme>
-				<Script
-					async
-					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1555749331536079"
-					crossOrigin="anonymous"
-				/>
+				<GoogleTagManager gtmId="GTM-PFR8VMCB" />
+				<GoogleAnalytics gaId="G-WQTK3578MF" />
 			</body>
 		</html>
 	);

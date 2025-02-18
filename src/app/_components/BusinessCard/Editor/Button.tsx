@@ -2,6 +2,7 @@ import { Button, Container } from '@radix-ui/themes';
 import { scrollToTop } from '@/app/_utils/scroll';
 import { delay } from 'es-toolkit';
 import domToImage from 'dom-to-image';
+import GACta from '@/app/_components/GACta';
 
 export function EditorButton() {
 	const generateQRCode = async () => {
@@ -28,8 +29,8 @@ export function EditorButton() {
 
 	return (
 		<Container px="2">
-			<Button onClick={generateQRCode} style={{ width: '100%', maxWidth: '450px', margin: '0 auto' }}>
-				Save my business card
+			<Button onClick={generateQRCode} style={{ width: '100%', maxWidth: '450px', margin: '0 auto' }} asChild>
+				<GACta eventLabel="click_save_business_card">Save my business card</GACta>
 			</Button>
 		</Container>
 	);
