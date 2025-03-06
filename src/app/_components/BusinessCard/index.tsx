@@ -7,7 +7,8 @@ import {
 	IoLogoLinkedin as LinkedInIcon,
 	IoIosLink as WebsiteIcon,
 } from 'react-icons/io';
-import { Optional } from '../Optional';
+import { Fallback } from '../Fallback';
+import { defaultData } from './Editor/constant';
 
 export type BusinessCardData = Partial<{
 	name: string;
@@ -51,70 +52,70 @@ export function BusinessCard({
 					mb="3"
 					wrap="wrap"
 				>
-					<Optional value={name}>
-						<Text color="cyan" asChild>
-							<Heading as="h4" size="7">
+					<Text color="cyan" asChild>
+						<Heading as="h4" size="7" style={{ wordBreak: 'break-all' }}>
+							<Fallback value={name} fallback={defaultData.name}>
 								{name}
-							</Heading>
-						</Text>
-					</Optional>
-					<Optional value={position && company}>
-						<Text asChild>
-							<Heading as="h5" size="2" weight="regular">
-								<sub>
+							</Fallback>
+						</Heading>
+					</Text>
+					<Text asChild>
+						<Heading as="h5" size="2" weight="regular">
+							<sub>
+								<Fallback value={position && company} fallback={`${defaultData.position}, @${defaultData.company}`}>
 									{position}, @{company}
-								</sub>
-							</Heading>
-						</Text>
-					</Optional>
+								</Fallback>
+							</sub>
+						</Heading>
+					</Text>
 				</Flex>
 				<Flex align="center" gap="1" mb="3">
-					<Optional value={location}>
-						<LocationIcon />
-						<Heading as="h5" size="3" weight="light">
+					<LocationIcon />
+					<Heading as="h5" size="3" weight="light">
+						<Fallback value={location} fallback={defaultData.location}>
 							{location}
-						</Heading>
-					</Optional>
+						</Fallback>
+					</Heading>
 				</Flex>
 				<Flex align="center" gap="1" mb="1">
-					<Optional value={email}>
-						<MailIcon />
-						<a href={`mailto:${email}`}>
-							<Heading as="h5" size="3" weight="regular">
+					<MailIcon />
+					<a href={`mailto:${email}`}>
+						<Heading as="h5" size="3" weight="regular">
+							<Fallback value={email} fallback={defaultData.email}>
 								{email}
-							</Heading>
-						</a>
-					</Optional>
+							</Fallback>
+						</Heading>
+					</a>
 				</Flex>
 				<Flex align="center" gap="1" mb="1">
-					<Optional value={phone}>
-						<PhoneIcon />
-						<a href={`tel:${phone}`}>
-							<Heading as="h5" size="3" weight="regular">
+					<PhoneIcon />
+					<a href={`tel:${phone}`}>
+						<Heading as="h5" size="3" weight="regular">
+							<Fallback value={phone} fallback={defaultData.phone}>
 								{phone}
-							</Heading>
-						</a>
-					</Optional>
+							</Fallback>
+						</Heading>
+					</a>
 				</Flex>
 				<Flex align="center" gap="1" mb="1">
-					<Optional value={linkedin}>
-						<LinkedInIcon />
-						<a href={linkedin} target="_blank" rel="noreferrer">
-							<Heading as="h5" size="3" weight="regular">
+					<LinkedInIcon />
+					<a href={linkedin} target="_blank" rel="noreferrer">
+						<Heading as="h5" size="3" weight="regular">
+							<Fallback value={linkedin} fallback={defaultData.linkedin}>
 								Linkedin: @{linkedin?.split('/')[4]}
-							</Heading>
-						</a>
-					</Optional>
+							</Fallback>
+						</Heading>
+					</a>
 				</Flex>
 				<Flex align="center" gap="1" mb="2">
-					<Optional value={website}>
-						<WebsiteIcon />
-						<a href={website} target="_blank" rel="noreferrer">
-							<Heading as="h5" size="3" weight="regular">
+					<WebsiteIcon />
+					<a href={website} target="_blank" rel="noreferrer">
+						<Heading as="h5" size="3" weight="regular">
+							<Fallback value={website} fallback={defaultData.website}>
 								{website}
-							</Heading>
-						</a>
-					</Optional>
+							</Fallback>
+						</Heading>
+					</a>
 				</Flex>
 				<Box style={{ alignSelf: 'flex-end' }}>{qrcode}</Box>
 			</Flex>

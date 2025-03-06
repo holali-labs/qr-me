@@ -11,11 +11,29 @@ import type { BusinessCardData } from '@/app/_components/BusinessCard';
 import { EditorOutput } from '@/app/_components/BusinessCard/Editor/Output';
 
 export const EditorContext = createContext<{ businessCard: BusinessCardData }>({
-	businessCard: businessCardData,
+	businessCard: {
+		name: '',
+		position: '',
+		company: '',
+		location: '',
+		email: '',
+		phone: '',
+		linkedin: '',
+		website: '',
+	},
 });
 
 export function Editor() {
-	const [businessCard, setBusinessCard] = useState<BusinessCardData>(businessCardData);
+	const [businessCard, setBusinessCard] = useState<BusinessCardData>({
+		name: '',
+		position: '',
+		company: '',
+		location: '',
+		email: '',
+		phone: '',
+		linkedin: '',
+		website: '',
+	});
 
 	const onEdit = (key: keyof BusinessCardData) => (event: React.ChangeEvent<HTMLInputElement>) => {
 		setBusinessCard((prev) =>
