@@ -44,10 +44,16 @@ export function BusinessCard({
 			asChild
 		>
 			<Flex direction="column">
-				<Flex direction={{ initial: 'column', sm: 'row' }} align={{ initial: 'start', sm: 'end' }} gap="2" mb="3">
+				<Flex
+					direction={{ initial: 'column', sm: 'row' }}
+					align={{ initial: 'start', sm: 'end' }}
+					gap="2"
+					mb="3"
+					wrap="wrap"
+				>
 					<Optional value={name}>
 						<Text color="cyan" asChild>
-							<Heading as="h4" size="7" wrap="nowrap">
+							<Heading as="h4" size="7">
 								{name}
 							</Heading>
 						</Text>
